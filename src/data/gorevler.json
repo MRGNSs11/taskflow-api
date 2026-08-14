@@ -1,5 +1,5 @@
 {
-  "sonId": 8,
+  "sonId": 6,
   "gorevler": [
     {
       "id": 1,
@@ -15,11 +15,11 @@
       "id": 2,
       "title": "Veritabani semasinin olusturulmasi",
       "description": "Kullanici, gorev ve proje tablolarinin iliskileriyle birlikte kurulmasi.",
-      "status": "completed",
-      "priority": "medium",
+      "status": "in-progress",
+      "priority": "urgent",
       "assignee": "Mehmet Kaya",
       "createdAt": "2026-08-05T11:00:00.000Z",
-      "updatedAt": "2026-08-14T11:37:03.776Z"
+      "updatedAt": "2026-08-13T10:20:00.000Z"
     },
     {
       "id": 3,
@@ -52,14 +52,14 @@
       "updatedAt": "2026-08-12T15:30:00.000Z"
     },
     {
-      "id": 7,
-      "title": "Odeme modulu entegrasyonu",
-      "description": "Odeme saglayicisi ile API baglantisinin kurulmasi",
+      "id": 6,
+      "title": "Postman test senaryolarinin yazilmasi",
+      "description": "Tum uclar icin istek koleksiyonu ve basarili/hatali durum testleri.",
       "status": "pending",
-      "priority": "high",
+      "priority": "medium",
       "assignee": "Omer Gunes",
-      "createdAt": "2026-08-14T11:33:30.689Z",
-      "updatedAt": "2026-08-14T11:33:30.689Z"
+      "createdAt": "2026-08-13T13:00:00.000Z",
+      "updatedAt": "2026-08-13T13:00:00.000Z"
     }
   ]
 }
