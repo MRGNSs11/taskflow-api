@@ -1,0 +1,65 @@
+{
+  "sonId": 6,
+  "gorevler": [
+    {
+      "id": 1,
+      "title": "Kullanici giris ekrani",
+      "description": "Login sayfasinin tasarimi, form dogrulamasi ve hata mesajlari.",
+      "status": "completed",
+      "priority": "high",
+      "assignee": "Ayse Demir",
+      "createdAt": "2026-08-04T09:15:00.000Z",
+      "updatedAt": "2026-08-11T16:40:00.000Z"
+    },
+    {
+      "id": 2,
+      "title": "Veritabani semasinin olusturulmasi",
+      "description": "Kullanici, gorev ve proje tablolarinin iliskileriyle birlikte kurulmasi.",
+      "status": "in-progress",
+      "priority": "urgent",
+      "assignee": "Mehmet Kaya",
+      "createdAt": "2026-08-05T11:00:00.000Z",
+      "updatedAt": "2026-08-13T10:20:00.000Z"
+    },
+    {
+      "id": 3,
+      "title": "REST API uclarinin yazilmasi",
+      "description": "Gorev modulu icin ekleme, listeleme, detay, guncelleme ve silme uclari.",
+      "status": "in-progress",
+      "priority": "high",
+      "assignee": "Omer Gunes",
+      "createdAt": "2026-08-06T08:30:00.000Z",
+      "updatedAt": "2026-08-14T09:05:00.000Z"
+    },
+    {
+      "id": 4,
+      "title": "API dokumantasyonunun hazirlanmasi",
+      "description": "Her uc icin aciklama, ornek istek ve ornek cevap.",
+      "status": "pending",
+      "priority": "medium",
+      "assignee": "Ayse Demir",
+      "createdAt": "2026-08-07T14:45:00.000Z",
+      "updatedAt": "2026-08-07T14:45:00.000Z"
+    },
+    {
+      "id": 5,
+      "title": "Eski raporlama modulunun kaldirilmasi",
+      "description": "Kullanilmayan rapor ekranlari ve baglantili kodlar temizlenecek.",
+      "status": "cancelled",
+      "priority": "low",
+      "assignee": "Mehmet Kaya",
+      "createdAt": "2026-08-08T10:10:00.000Z",
+      "updatedAt": "2026-08-12T15:30:00.000Z"
+    },
+    {
+      "id": 6,
+      "title": "Postman test senaryolarinin yazilmasi",
+      "description": "Tum uclar icin istek koleksiyonu ve basarili/hatali durum testleri.",
+      "status": "pending",
+      "priority": "medium",
+      "assignee": "Omer Gunes",
+      "createdAt": "2026-08-13T13:00:00.000Z",
+      "updatedAt": "2026-08-13T13:00:00.000Z"
+    }
+  ]
+}

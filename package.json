@@ -1,0 +1,23 @@
+{
+  "name": "taskflow-api",
+  "version": "1.0.0",
+  "description": "TaskFlow - Gorev ve Proje Yonetim Sistemi REST API (Node.js + Express)",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "rest-api",
+    "crud",
+    "middleware"
+  ],
+  "author": "Omer Gunes",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

@@ -1,0 +1,19 @@
+# Bagimliliklar
+node_modules/
+
+# Log kayitlari (calisma sirasinda uretilir)
+logs/*.log
+
+# Ortam degiskenleri
+.env
+.env.local
+
+# Isletim sistemi
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea/

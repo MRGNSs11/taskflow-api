@@ -1,0 +1,281 @@
+{
+  "info": {
+    "name": "TaskFlow API - Omer Gunes",
+    "description": "Gorev ve Proje Yonetim Sistemi REST API. Zorunlu 5 CRUD ucu ve istege bagli ozellikler.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000/api",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "ZORUNLU - CRUD Uclari",
+      "item": [
+        {
+          "name": "1. Gorev Ekleme (POST /tasks)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Odeme modulu entegrasyonu\",\n  \"description\": \"Odeme saglayicisi ile API baglantisinin kurulmasi\",\n  \"status\": \"pending\",\n  \"priority\": \"high\",\n  \"assignee\": \"Omer Gunes\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/tasks",
+              "host": ["{{baseUrl}}"],
+              "path": ["tasks"]
+            },
+            "description": "Yeni gorev olusturur. Basarili istekte 201 Created doner."
+          }
+        },
+        {
+          "name": "2. Gorev Listeleme (GET /tasks)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/tasks",
+              "host": ["{{baseUrl}}"],
+              "path": ["tasks"]
+            },
+            "description": "Tum gorevleri listeler. 200 OK doner."
+          }
+        },
+        {
+          "name": "3. Gorev Detayi (GET /tasks/:id)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/tasks/2",
+              "host": ["{{baseUrl}}"],
+              "path": ["tasks", "2"]
+            },
+            "description": "Belirli bir gorevi getirir. Kayit yoksa 404 doner."
+          }
+        },
+        {
+          "name": "4. Gorev Guncelleme (PUT /tasks/:id)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"completed\",\n  \"priority\": \"medium\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/tasks/2",
+              "host": ["{{baseUrl}}"],
+              "path": ["tasks", "2"]
+            },
+            "description": "Gorevin gonderilen alanlarini gunceller. 200 OK doner."
+          }
+        },
+        {
+          "name": "5. Gorev Silme (DELETE /tasks/:id)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/tasks/6",
+              "host": ["{{baseUrl}}"],
+              "path": ["tasks", "6"]
+            },
+            "description": "Gorevi siler. Basarili istekte 204 No Content doner (govde bos)."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Hata Durumlari",
+      "item": [
+        {
+          "name": "Olmayan gorev (404)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/tasks/999",
+              "host": ["{{baseUrl}}"],
+              "path": ["tasks", "999"]
+            }
+          }
+        },
+        {
+          "name": "Eksik baslik (400)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"Baslik alani gonderilmedi\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/tasks",
+              "host": ["{{baseUrl}}"],
+              "path": ["tasks"]
+            }
+          }
+        },
+        {
+          "name": "Gecersiz oncelik (400)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Deneme gorevi\",\n  \"priority\": \"cok-acil\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/tasks",
+              "host": ["{{baseUrl}}"],
+              "path": ["tasks"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "ISTEGE BAGLI - Filtreleme, Arama, Sayfalama",
+      "item": [
+        {
+          "name": "Duruma gore filtreleme",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/tasks?status=completed",
+              "host": ["{{baseUrl}}"],
+              "path": ["tasks"],
+              "query": [{ "key": "status", "value": "completed" }]
+            }
+          }
+        },
+        {
+          "name": "Oncelige gore filtreleme",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/tasks?priority=high",
+              "host": ["{{baseUrl}}"],
+              "path": ["tasks"],
+              "query": [{ "key": "priority", "value": "high" }]
+            }
+          }
+        },
+        {
+          "name": "Calisana gore listeleme",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/tasks?assignee=Omer Gunes",
+              "host": ["{{baseUrl}}"],
+              "path": ["tasks"],
+              "query": [{ "key": "assignee", "value": "Omer Gunes" }]
+            }
+          }
+        },
+        {
+          "name": "Gorev arama",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/tasks?keyword=api",
+              "host": ["{{baseUrl}}"],
+              "path": ["tasks"],
+              "query": [{ "key": "keyword", "value": "api" }]
+            }
+          }
+        },
+        {
+          "name": "Sayfalama",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/tasks?page=1&limit=3",
+              "host": ["{{baseUrl}}"],
+              "path": ["tasks"],
+              "query": [
+                { "key": "page", "value": "1" },
+                { "key": "limit", "value": "3" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Siralama",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/tasks?sort=priority&order=desc",
+              "host": ["{{baseUrl}}"],
+              "path": ["tasks"],
+              "query": [
+                { "key": "sort", "value": "priority" },
+                { "key": "order", "value": "desc" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "ISTEGE BAGLI - Raporlama",
+      "item": [
+        {
+          "name": "Tamamlanan gorevler",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/reports/completed",
+              "host": ["{{baseUrl}}"],
+              "path": ["reports", "completed"]
+            }
+          }
+        },
+        {
+          "name": "Bekleyen gorevler",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/reports/pending",
+              "host": ["{{baseUrl}}"],
+              "path": ["reports", "pending"]
+            }
+          }
+        },
+        {
+          "name": "Genel sistem ozeti",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/reports/summary",
+              "host": ["{{baseUrl}}"],
+              "path": ["reports", "summary"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
